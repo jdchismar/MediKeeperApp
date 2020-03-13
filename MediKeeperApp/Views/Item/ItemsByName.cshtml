@@ -1,0 +1,51 @@
+﻿@model Manager.Models.Item
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ItemsByName</title>
+</head>
+<body>
+
+<div>
+    <h4>Item</h4>
+    <hr />
+    <table class="table">
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.ID)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.ID)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.ItemName)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.ItemName)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.Cost)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.Cost)
+            </td>
+        </tr>
+    </table>
+</div>
+<br />
+<div>
+    <input type="submit" value="Back To home" class="btn btn-default" onclick="location.href='@Url.Action("Index","Item")'" />
+</div>
+</body>
+</html>

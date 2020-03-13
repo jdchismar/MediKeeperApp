@@ -1,0 +1,73 @@
+﻿@model Manager.Models.ItemCollection
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+
+    <div>
+        <h4>Item API test Harness</h4>
+        <hr />
+        <dl class="dl-horizontal"></dl>
+    </div>
+    <div>
+        <input type="submit" value="Create Item" class="btn btn-default" onclick="location.href='@Url.Action("Create", "Item")'" />
+    </div>
+    <div>
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(m => m.ItemCol[0].ID)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(m => m.ItemCol[0].ItemName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(m => m.ItemCol[0].Cost)
+                </th>
+            </tr>
+            @foreach (var item in Model.ItemCol)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(m => item.ID)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(m => item.ItemName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(m => item.Cost)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.ID })
+                    </td>
+                    <td>
+                        @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+    <br /><br />
+    <div>
+        <input type="submit" value="Get Items" class="btn btn-default" onclick="location.href='@Url.Action("Items","Item")'" />
+    </div>
+    <br />
+    @using (Html.BeginForm("ItemsByName", "Item", FormMethod.Post))
+    {
+        <div>
+            <input type="submit" value="Get Item by Name" class="btn btn-primary" />
+        </div>
+        <div>
+            @Html.TextBoxFor(m => m.ItemName, new { @class = "form-control" })
+        </div>
+    }
+</body>
+</html>

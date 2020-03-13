@@ -1,0 +1,47 @@
+﻿@model Manager.Models.ItemCollection
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Items</title>
+</head>
+<body>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(m => m.ItemCol[0].ID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(m => m.ItemCol[0].ItemName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(m => m.ItemCol[0].Cost)
+            </th>
+        </tr>
+        @foreach (var item in Model.ItemCol)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(m => item.ID)
+            </td>
+            <td>
+                @Html.DisplayFor(m => item.ItemName)
+            </td>
+            <td>
+                @Html.DisplayFor(m => item.Cost)
+            </td>
+        </tr>
+        }
+    </table>
+    <br />
+    <div>
+        <input type="submit" value="Back To home" class="btn btn-default" onclick="location.href='@Url.Action("Index","Item")'" />
+    </div>
+</body>
+</html>

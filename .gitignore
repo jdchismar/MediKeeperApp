@@ -3,3 +3,7 @@
 ################################################################################
 
 /.vs/Medikeeper/v15
+/.vs/MediKeeperApp/v15
+/.vs
+/Manager/bin/Debug/netcoreapp2.1
+/Manager/obj
