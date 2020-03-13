@@ -52,7 +52,7 @@ namespace Manager
         {
             ItemCollection res = new ItemCollection();
             var client = new RestClient(APIBaseUrl);
-            var request = new RestRequest(string.Format("api/v1/UpdateItem?ID={0}&Name={1}&Cost={2}", item.ID, item.ItemName, item.Cost), Method.POST);
+            var request = new RestRequest(string.Format("api/v1/Item?ID={0}&Name={1}&Cost={2}", item.ID, item.ItemName, item.Cost), Method.PUT);
             RestResponse response = (RestResponse)client.Execute(request);
 
             if (response.StatusCode == System.Net.HttpStatusCode.OK)
@@ -65,7 +65,7 @@ namespace Manager
         {
             ItemCollection res = new ItemCollection();
             var client = new RestClient(APIBaseUrl);
-            var request = new RestRequest(string.Format("api/v1/CreateItem?ID={0}&Name={1}&Cost={2}", item.ID, item.ItemName, item.Cost), Method.POST);
+            var request = new RestRequest(string.Format("api/v1/Item?ID={0}&Name={1}&Cost={2}", item.ID, item.ItemName, item.Cost), Method.POST);
             RestResponse response = (RestResponse)client.Execute(request);
 
             if (response.StatusCode == System.Net.HttpStatusCode.OK)
@@ -78,7 +78,7 @@ namespace Manager
         {
             ItemCollection res = new ItemCollection();
             var client = new RestClient(APIBaseUrl);
-            var request = new RestRequest(string.Format("api/v1/DeleteItem?ID={0}", id), Method.POST);
+            var request = new RestRequest(string.Format("api/v1/Item?ID={0}", id), Method.DELETE);
             RestResponse response = (RestResponse)client.Execute(request);
 
             if (response.StatusCode == System.Net.HttpStatusCode.OK)
