@@ -8,8 +8,13 @@ namespace Manager
 {
     public class APIManger
     {
-        private string APIBaseUrl = "https://localhost:44308/";
+        private string APIBaseUrl;
 
+        public APIManger(string baseUrl)
+        {
+            APIBaseUrl = baseUrl;
+        }
+        
         public ItemCollection GetItems()
         {
             ItemCollection res = new ItemCollection();
@@ -65,7 +70,7 @@ namespace Manager
         {
             ItemCollection res = new ItemCollection();
             var client = new RestClient(APIBaseUrl);
-            var request = new RestRequest(string.Format("api/v1/Item?ID={0}&Name={1}&Cost={2}", item.ID, item.ItemName, item.Cost), Method.POST);
+            var request = new RestRequest(string.Format("api/v1/Item?Name={0}&Cost={1}", item.ItemName, item.Cost), Method.POST);
             RestResponse response = (RestResponse)client.Execute(request);
 
             if (response.StatusCode == System.Net.HttpStatusCode.OK)

@@ -1,6 +1,6 @@
 ﻿@model Manager.Models.ItemCollection
 @{
-    Layout = null;
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <!DOCTYPE html>
@@ -18,7 +18,7 @@
         <dl class="dl-horizontal"></dl>
     </div>
     <div>
-        <input type="submit" value="Create Item" class="btn btn-default" onclick="location.href='@Url.Action("Create", "Item")'" />
+        <input type="submit" value="Create Item" class="btn btn-primary" onclick="location.href='@Url.Action("Create", "Item")'" />
     </div>
     <div>
         <table class="table">
@@ -64,9 +64,7 @@
     {
         <div>
             <input type="submit" value="Get Item by Name" class="btn btn-primary" />
-        </div>
-        <div>
-            @Html.TextBoxFor(m => m.ItemName, new { @class = "form-control" })
+            @Html.TextBoxFor(m => m.ItemName, new { style = "width: 150px;" })
         </div>
     }
 </body>

@@ -1,7 +1,7 @@
 ﻿@model Manager.Models.ItemCollection
 
 @{
-    Layout = null;
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <!DOCTYPE html>
@@ -12,7 +12,7 @@
     <title>Items</title>
 </head>
 <body>
-    <table class="table">
+    <table class="table" style="width: 25%">
         <tr>
             <th>
                 @Html.DisplayNameFor(m => m.ItemCol[0].ID)

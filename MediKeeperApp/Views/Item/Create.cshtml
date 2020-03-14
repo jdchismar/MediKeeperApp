@@ -4,6 +4,9 @@
     Layout = null;
 }
 
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
 <!DOCTYPE html>
 
 <html>
@@ -13,53 +16,44 @@
 </head>
 <body>
 
-<h4>Item</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
-            <table class="table form-group">
-                <tr>
-                    <td>
-                        <label asp-for="ID" class="control-label"></label>
-                    </td>
-                    <td>
-                        <input asp-for="ID" class="form-control" />
-                        <span asp-validation-for="ID" class="text-danger"></span>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <label asp-for="ItemName" class="control-label"></label>
-                    </td>
-                    <td>
-                        <input asp-for="ItemName" class="form-control" />
-                        <span asp-validation-for="ItemName" class="text-danger"></span>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <label asp-for="Cost" class="control-label"></label>
-                    </td>
-                    <td>
-                        <input asp-for="Cost" class="form-control" />
-                        <span asp-validation-for="Cost" class="text-danger"></span>
-                    </td>
-                </tr>
-            </table>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-default" />
-            </div>
-        </form>
+    <h4>Item</h4>
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="Create">
+                <table class="table form-group">
+                    <tr>
+                        <td>
+                            <label asp-for="ItemName" class="control-label"></label>
+                        </td>
+                        <td>
+                            <input asp-for="ItemName" class="form-control" />
+                            <span asp-validation-for="ItemName" class="text-danger"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label asp-for="Cost" class="control-label"></label>
+                        </td>
+                        <td>
+                            <input asp-for="Cost" class="form-control" />
+                            <span asp-validation-for="Cost" class="text-danger"></span>
+                        </td>
+                    </tr>
+                </table>
+                <div class="form-group">
+                    <input type="submit" value="Create" class="btn btn-default" />
+                </div>
+            </form>
+        </div>
     </div>
-</div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
+    <div>
+        <a asp-action="Index">Back to List</a>
+    </div>
 
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
+    @section Scripts {
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    }
 </body>
 </html>

@@ -6,4 +6,8 @@
 /.vs/MediKeeperApp/v15
 /.vs
 /Manager/bin/Debug/netcoreapp2.1
+/Manager/bin/Release
 /Manager/obj
+/MediKeeperApp/bin
+/MediKeeperApp/obj
+

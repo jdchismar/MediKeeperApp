@@ -6,29 +6,39 @@ using Manager;
 using Manager.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 
 namespace MediKeeperApp.Controllers
 {
     public class ItemController : Controller
     {
+        private IConfiguration configuration;
+        private APIManger mgr;
+
+        public ItemController(IConfiguration IConfig)
+        {
+            configuration = IConfig;
+            mgr = new APIManger(configuration.GetSection("EndPoints").GetSection("MediKeeperBaseAPI").Value);
+        }
+
         // GET: Item
         public ActionResult Index()
         {
-            APIManger mgr = new APIManger();
+            //APIManger mgr = new APIManger();
             ItemCollection res = mgr.GetAllItems();
             return View(res);
         }
 
         public ActionResult Items()
         {
-            APIManger mgr = new APIManger();
+            //APIManger mgr = new APIManger();
             ItemCollection res = mgr.GetItems();
             return View(res);
         }
 
         public ActionResult ItemsByName(IndexItem item)
         {
-            APIManger mgr = new APIManger();
+            //APIManger mgr = new APIManger();
             Item res = mgr.ItemsByName(item.ItemName);
             return View(res);
         }
@@ -53,7 +63,8 @@ namespace MediKeeperApp.Controllers
         {
             try
             {
-                APIManger mgr = new APIManger();
+                //APIManger mgr = new APIManger();
+
                 mgr.CreateItem(obj);
 
                 return RedirectToAction(nameof(Index));
@@ -67,7 +78,7 @@ namespace MediKeeperApp.Controllers
         // GET: Item/Edit/5
         public ActionResult Edit(int id)
         {
-            APIManger mgr = new APIManger();
+            //APIManger mgr = new APIManger();
             ItemCollection res = mgr.GetAllItems();
             Item item = res.ItemCol.FirstOrDefault(m => Convert.ToInt32(m.ID) == id);
             return View(item);
@@ -81,7 +92,7 @@ namespace MediKeeperApp.Controllers
         {
             try
             {
-                APIManger mgr = new APIManger();
+                //APIManger mgr = new APIManger();
                 mgr.UpdateItem(obj);
             
                 return RedirectToAction(nameof(Index));
@@ -95,7 +106,7 @@ namespace MediKeeperApp.Controllers
         // GET: Item/Delete/5
         public ActionResult Delete(string id)
         {
-            APIManger mgr = new APIManger();
+            //APIManger mgr = new APIManger();
             mgr.DeleteItem(id);
             return RedirectToAction(nameof(Index));
         }
