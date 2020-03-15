@@ -20,9 +20,16 @@ namespace Manager
             ItemCollection res = new ItemCollection();
             var client = new RestClient(APIBaseUrl);
             var request = new RestRequest("api/v1/GetMaxItems", Method.GET);
+
             RestResponse response = (RestResponse)client.Execute(request);
 
-            res = Newtonsoft.Json.JsonConvert.DeserializeObject<ItemCollection>(response.Content);
+            if (response.StatusCode == System.Net.HttpStatusCode.OK)
+                res = Newtonsoft.Json.JsonConvert.DeserializeObject<ItemCollection>(response.Content);
+            else
+            {
+                //Log error  
+                //Return friendly message
+            }
 
             return res;
         }
@@ -36,7 +43,13 @@ namespace Manager
 
             RestResponse response = (RestResponse)client.Execute(request);
 
-            res = Newtonsoft.Json.JsonConvert.DeserializeObject<Item>(response.Content);
+            if (response.StatusCode == System.Net.HttpStatusCode.OK)
+                res = Newtonsoft.Json.JsonConvert.DeserializeObject<Item>(response.Content);
+            else
+            {
+                //Log error  
+                //Return friendly message
+            }
 
             return res;
         }
@@ -48,7 +61,13 @@ namespace Manager
             var request = new RestRequest("api/v1/GetItems", Method.GET);
             RestResponse response = (RestResponse)client.Execute(request);
 
-            res = Newtonsoft.Json.JsonConvert.DeserializeObject<ItemCollection>(response.Content);
+            if (response.StatusCode == System.Net.HttpStatusCode.OK)
+                res = Newtonsoft.Json.JsonConvert.DeserializeObject<ItemCollection>(response.Content);
+            else
+            {
+                //Log error  
+                //Return friendly message
+            }
 
             return res;
         }

@@ -8,6 +8,8 @@
 /Manager/bin/Debug/netcoreapp2.1
 /Manager/bin/Release
 /Manager/obj
-/MediKeeperApp/bin
-/MediKeeperApp/obj
+/MediKeeperApp/bin/Debug/netcoreapp2.1
+/MediKeeperApp/obj/Debug/netcoreapp2.1
 
+/MediKeeperApp/obj/Release/netcoreapp2.1
+/MediKeeperApp/bin/Release/netcoreapp2.1
